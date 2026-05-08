@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Folleto Higiene y Seguridad</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.Cambio {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.oceano {
+    width: 100%;
+    min-height: 400px;
+
+    background: white;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 60px 100px;
+    box-sizing: border-box;
+
+    margin-top: 80px;
+
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.Parte1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.oceano h3 {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+/* efecto agua suave arriba */
+.oceano::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: 120px;
+
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), white);
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.Gif1, .Gif2 {
+    width: 140px;
+    height: auto;
+    z-index: 2;
+    position: relative;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* flotación suave tipo “bajo el agua” */
+@keyframes flotar {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+body {
+    min-height: 100vh;
+
+    background: linear-gradient(
+        to bottom,
+        #aee8ff 0%,
+        #74c8f0 35%,
+        #3a93d1 65%,
+        #165d94 100%
+    );
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+}
+
+/* TARJETA TIPO "SLIDE" */
+.tarjeta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    padding: 30px;
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+
+    color: white;
+}
+
+/* IMAGEN */
+.imagen {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.imagen img {
+    width: 100%;
+    border-radius: 14px;
+    display: block;
+}
+
+/* TEXTO */
+.texto-area {
+    flex: 1;
+}
+
+h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+/* ANIMACIÓN LETRAS TEXTO */
+.letra {
+    opacity: 0;
+    color: black;
+    display: inline;
+    animation: aparecerLetra 0.5s forwards;
+}
+
+@keyframes aparecerLetra {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TITULO LETRAS */
+.letra-titulo {
+    display: inline-block;
+    font-style: italic;
+    color: black;
+    animation: olaTitulo 1.5s ease-in-out infinite;
+}
+
+@keyframes olaTitulo {
+    0%, 100% {
+        transform: translateY(0px);
+        color: #d0d0d0;
+    }
+    50% {
+        transform: translateY(-2px);
+        color: black;
+    }
+}
+
+/* TEMBLOR IMAGEN */
+@keyframes Temblar {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(-3px, 2px) rotate(-1deg); }
+  50%  { transform: translate(3px, -2px) rotate(1deg); }
+  75%  { transform: translate(-1px, 1px) rotate(0deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.temblor {
+    animation: Temblar 0.6s ease-out;
+}
+
+/* FLECHAS */
+.flecha {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 42px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #333;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.flecha:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.flecha-izq { left: 20px; }
+.flecha-der { right: 20px; }
+
+/* TRANSICIONES TARJETA */
+.salir-izq { animation: salirIzq 0.35s forwards; }
+.salir-der { animation: salirDer 0.35s forwards; }
+.entrar-izq { animation: entrarIzq 0.35s forwards; }
+.entrar-der { animation: entrarDer 0.35s forwards; }
+
+@keyframes salirIzq {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(-40px); }
+}
+
+@keyframes salirDer {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(40px); }
+}
+
+@keyframes entrarIzq {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes entrarDer {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+</style>
+</head>
+
+<body>
+
+<button class="flecha flecha-izq" onclick="anterior()">←</button>
+<button class="flecha flecha-der" onclick="siguiente()">→</button>
+
+<div class="contenedor">
+    <div class="tarjeta" id="tarjeta">
+
+        <div class="imagen">
+            <img id="imagen" src="gafas.png">
+        </div>
+
+        <div class="texto-area">
+            <h2 id="titulo"></h2>
+            <p id="texto"></p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+const paginas = [
+    {
+        titulo: "Gafas de seguridad",
+        texto: "Creadas en zonas rudimentarias, las gafas de seguridad tienen antecedentes en los pueblos esquimales del siglo XIII, quienes utilizaban hueso, madera o cuerno tallado con pequeñas hendiduras para reducir el reflejo intenso de la nieve y evitar la ceguera temporal.\n\nLa protección ocular industrial comenzó a desarrollarse con mayor fuerza a finales del siglo XIX, cuando el trabajo en fábricas, fundiciones y talleres aumentó el riesgo de proyecciones de metal, chispas y partículas.\n\nEn la actualidad, las gafas de seguridad están fabricadas con materiales resistentes al impacto, como policarbonato, y su función principal es proteger los ojos contra polvo, virutas, productos químicos, fragmentos sólidos y radiación.",
+        imagen: "gafas.png"
+    },
+    {
+        titulo: "Casco de seguridad",
+        texto: "El casco de seguridad surgió como respuesta a la necesidad de proteger la cabeza en minas, construcciones y fábricas, donde los golpes y la caída de objetos eran causas frecuentes de lesiones graves.\n\nLos primeros modelos industriales aparecieron a comienzos del siglo XX y estaban fabricados con cuero endurecido o metal. Con el tiempo fueron reemplazados por materiales plásticos de alta resistencia, mucho más livianos y eficaces.\n\nActualmente, el casco protege al trabajador frente a impactos, caídas de herramientas, golpes contra estructuras fijas e incluso ciertos riesgos eléctricos, dependiendo del tipo utilizado.",
+        imagen: "casco.png"
+    },
+    {
+        titulo: "Guantes de seguridad",
+        texto: "El uso de guantes como protección existe desde la antigüedad, aunque su aplicación industrial se consolidó con el crecimiento de la metalurgia, la mecánica y los trabajos químicos.\n\nEn talleres y entornos técnicos, los guantes permiten proteger las manos de cortes, pinchazos, abrasiones, temperaturas elevadas y sustancias corrosivas.\n\nNo todos los guantes sirven para todo tipo de trabajo: algunos están diseñados para manipular objetos calientes, otros para tareas eléctricas, y otros para productos químicos. Elegir el guante correcto es esencial para que realmente cumpla su función de seguridad.",
+        imagen: "guantes.png"
+    },
+    {
+        titulo: "Calzado de seguridad",
+        texto: "El calzado de seguridad apareció cuando se hizo evidente que muchos accidentes laborales afectaban directamente los pies, especialmente por caídas de objetos pesados, elementos punzantes o superficies resbaladizas.\n\nLos modelos modernos incorporan puntera reforzada, suela antideslizante y materiales resistentes a perforaciones. Algunos también ofrecen aislamiento eléctrico o protección contra sustancias químicas.\n\nEn talleres y escuelas técnicas, su uso es fundamental porque protege una de las partes del cuerpo más expuestas durante el trabajo cotidiano.",
+        imagen: "calzado.png"
+    },
+    {
+        titulo: "Protección auditiva",
+        texto: "La protección auditiva comenzó a utilizarse de forma más frecuente durante la industrialización, cuando se comprobó que la exposición continua a ruidos intensos podía causar pérdida auditiva permanente.\n\nLos protectores pueden ser tapones o auriculares especiales que reducen la intensidad del sonido sin impedir completamente la percepción del entorno.\n\nSon especialmente importantes en lugares donde funcionan motores, compresores, herramientas neumáticas o maquinaria pesada, ya que el daño auditivo suele producirse de manera lenta y muchas veces pasa desapercibido hasta que ya es irreversible.",
+        imagen: "auditiva.png"
+    },
+    {
+        titulo: "Mascarilla o protección respiratoria",
+        texto: "La protección respiratoria surgió por la necesidad de evitar que polvo, humo, vapores o partículas peligrosas ingresaran al sistema respiratorio.\n\nEn trabajos de carpintería, soldadura, pintura, construcción o manipulación de materiales finos, respirar partículas suspendidas puede afectar los pulmones y causar enfermedades con el paso del tiempo.\n\nLas mascarillas modernas filtran distintos tipos de contaminantes según su diseño. Su uso adecuado ayuda a preservar la salud respiratoria y reduce riesgos que muchas veces no son visibles a simple vista.",
+        imagen: "mascarilla.png"
+    }
+];
+
+let indice = 0;
+let bloqueado = false;
+let timeoutActual = null;
+
+const tarjeta = document.getElementById("tarjeta");
+const titulo = document.getElementById("titulo");
+const texto = document.getElementById("texto");
+const imagen = document.getElementById("imagen");
+
+function detenerEscritura() {
+    if (timeoutActual) clearTimeout(timeoutActual);
+}
+
+function escribirTexto(frase, i = 0) {
+    if (i >= frase.length) return;
+
+    const letra = frase[i];
+
+    if (letra === "\n") {
+        texto.appendChild(document.createElement("br"));
+    } else if (letra === " ") {
+        texto.appendChild(document.createTextNode(" "));
+    } else {
+        const span = document.createElement("span");
+        span.className = "letra";
+        span.textContent = letra;
+        texto.appendChild(span);
+    }
+
+    timeoutActual = setTimeout(() => escribirTexto(frase, i + 1), 10);
+}
+
+function escribirTitulo(frase) {
+    titulo.textContent = "";
+
+    for (let i = 0; i < frase.length; i++) {
+        const letra = frase[i];
+
+        if (letra === "\n") {
+            titulo.appendChild(document.createElement("br"));
+        } else if (letra === " ") {
+            titulo.appendChild(document.createTextNode(" "));
+        } else {
+            const span = document.createElement("span");
+            span.className = "letra-titulo";
+            span.textContent = letra;
+            span.style.animationDelay = `${i * 0.15}s`;
+            titulo.appendChild(span);
+        }
+    }
+}
+
+function mostrarPagina() {
+    const pagina = paginas[indice];
+
+    escribirTitulo(pagina.titulo);
+
+    texto.textContent = "";
+    imagen.src = pagina.imagen;
+
+    imagen.classList.remove("temblor");
+    void imagen.offsetWidth;
+    imagen.classList.add("temblor");
+
+    escribirTexto(pagina.texto);
+}
+
+function cambiarPagina(nuevo, dir) {
+    if (bloqueado) return;
+    bloqueado = true;
+
+    detenerEscritura();
+
+    tarjeta.className = "tarjeta " + (dir === "derecha" ? "salir-izq" : "salir-der");
+
+    setTimeout(() => {
+        indice = nuevo;
+
+        tarjeta.className = "tarjeta " + (dir === "derecha" ? "entrar-der" : "entrar-izq");
+
+        mostrarPagina();
+
+        setTimeout(() => bloqueado = false, 350);
+
+    }, 350);
+}
+
+function siguiente() {
+    let n = indice + 1;
+    if (n >= paginas.length) n = 0;
+    cambiarPagina(n, "derecha");
+}
+
+function anterior() {
+    let n = indice - 1;
+    if (n < 0) n = paginas.length - 1;
+    cambiarPagina(n, "izquierda");
+}
+
+mostrarPagina();
+</script>
+
+<div class="Cambio">
+    <div class="oceano">
+        <div class="Parte1">
+            <img class="Gif1" src="Gif1.gif">
+            <h1>LA SEGURIDAD SI IMPORTA</h1>
+            <img class="Gif2" src="Gif2.gif">
+        </div>
+        <h3>
+            La seguridad en el trabajo no es un detalle secundario ni algo que se use “por obligación”, sino una forma de cuidar lo más importante que tenemos: la vida y la salud. Cada elemento de protección, desde unas gafas hasta un casco o una mascarilla, está pensado para evitar accidentes que muchas veces ocurren en segundos pero pueden dejar consecuencias para siempre.
+        </h3>
+        <h3>
+            Trabajar de forma segura significa aprender a reconocer riesgos, usar correctamente las herramientas adecuadas y respetar las normas que protegen a todos. No se trata solo de evitar lesiones, sino también de crear ambientes donde las personas puedan desarrollarse sin miedo y con confianza.
+            En definitiva, la seguridad no solo protege el cuerpo, también protege el futuro de cada trabajador.
+        </h3>
+        
+    </div>
+</div>
+
+</body>
+</html>
